@@ -1,7 +1,6 @@
 import sqlite3
 from flask_restful import Resource, reqparse
 
-
 class User:
     def __init__(self, _id, username, password):
         self.id = _id
@@ -24,10 +23,6 @@ class User:
         connection.close()
         return user
 
-
-
-
-
     @classmethod
     def find_by_id(cls, _id):
         connection = sqlite3.connect('mydata.db')
@@ -44,6 +39,7 @@ class User:
         connection.close()
         return user
 
+
 class UserRegister(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('username',
@@ -56,6 +52,7 @@ class UserRegister(Resource):
         required=True,
         help="This field cannot be left blank!"
     )
+    
     def post(self):
         data = UserRegister.parser.parse_args()
 
