@@ -13,6 +13,7 @@ api = Api(app)
 jwt = JWT(app, authenticate, identity)
 
 # items = [] #in memory database
+# using sqlite3 to store the data
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(GetItem, '/items')
