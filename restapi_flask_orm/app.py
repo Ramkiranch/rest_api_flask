@@ -19,6 +19,7 @@ def create_tables():
 
 jwt = JWT(app, authenticate, identity)
 
+#endpoints to access the application
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(GetItem, '/items')
